@@ -1,0 +1,122 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main()
+        {
+            List<int> list = new List<int>() { 1, 2, 3, 4 };
+            bool Menu = true;
+            do
+            {
+                foreach (int de in list)
+                {
+                    Console.Write(de + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("[1] - Add");
+                Console.WriteLine();
+                Console.WriteLine("[2] - Remove");
+                Console.WriteLine();
+                Console.WriteLine("[3] - Contains");
+                Console.WriteLine();
+                Console.WriteLine("[4] - Clear");
+                Console.WriteLine();
+                Console.WriteLine("[5] - Sort");
+                Console.WriteLine();
+                Console.WriteLine("[6] - Reverse");
+                Console.WriteLine();
+                Console.WriteLine("[7] - IndexOf");
+                Console.WriteLine();
+                Console.WriteLine("[8] - Count");
+                Console.WriteLine();
+                Console.WriteLine("[9] - BinarySearch");
+                Console.WriteLine();
+                Console.WriteLine("[10] - GetEnumerator");
+                Console.WriteLine();
+                Console.WriteLine("[11] - ToArray");
+                Console.WriteLine();
+                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine();
+                int user_input = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                switch (user_input)
+                {
+                    case 1:
+                        int s = Convert.ToInt32(Console.ReadLine());
+                        list.Add(s);
+                        break;
+                    case 2:
+                        foreach (int de in list)
+                        {
+                            Console.Write(de + " ");
+                        }
+                        Console.WriteLine("Введите какой элемент удалить");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        list.Remove(b);
+                        break;
+                    case 3:
+                        int g = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(list.Contains(g));
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        list.Clear();
+                        break;
+                    case 5:
+                        list.Sort();
+                        foreach (int de in list)
+                        {
+                            Console.Write(de + " ");
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        list.Reverse();
+                        foreach (int de in list)
+                        {
+                            Console.Write(de + " ");
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        Console.WriteLine("Введите элемент");
+                        int l = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Инднекс данного элемента: " + list.IndexOf(l));
+                        Console.ReadKey();
+                        break;
+                    case 8:
+                        Console.WriteLine(list.Count);
+                        Console.ReadKey();
+                        break;
+                    case 9:
+                        Console.WriteLine("Введите элемент");
+                        int f = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(list.BinarySearch(f));
+                        Console.ReadKey();
+                        break;
+                    case 10:
+                        Console.WriteLine(list.GetEnumerator());
+                        Console.ReadKey();
+                        break;
+                    case 11:
+                        list.ToArray();
+                        Console.WriteLine(list.ToArray());
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu = false;
+                        break;
+                }
+                Console.Clear();
+            }
+            while (Menu);
+        }
+    }
+}
