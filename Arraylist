@@ -1,0 +1,181 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList AL = new ArrayList();
+            ArrayList newAL = new ArrayList();
+            ArrayList newAL1 = new ArrayList();
+            ArrayList newAL2 = new ArrayList();
+            AL.Add(2);
+            AL.Add(3);
+            AL.Add(1);
+            AL.Add(4);
+            AL.Add(7);
+            bool Menu = true;
+            do
+            {
+                Console.Write("ArrayList: ");
+                foreach (int i in AL)
+                    Console.Write(i + " ");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("[1] - Capacity ");
+                Console.WriteLine();
+                Console.WriteLine("[2] - Count ");
+                Console.WriteLine();
+                Console.WriteLine("[3] - Add ");
+                Console.WriteLine();
+                Console.WriteLine("[4] - Remove ");
+                Console.WriteLine();
+                Console.WriteLine("[5] - Sort");
+                Console.WriteLine();
+                Console.WriteLine("[6] - Clear");
+                Console.WriteLine();
+                Console.WriteLine("[7] - Reverse");
+                Console.WriteLine();
+                Console.WriteLine("[8] - BinarySearch");
+                Console.WriteLine();
+                Console.WriteLine("[9] - Contains");
+                Console.WriteLine();
+                Console.WriteLine("[10] - Index of");
+                Console.WriteLine();
+                Console.WriteLine("[11] - GetEnumerator");
+                Console.WriteLine();
+                Console.WriteLine("[12] - ToArray");
+                Console.WriteLine();
+                Console.WriteLine("[13] - Equals");
+                Console.WriteLine();
+                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine();
+                int d = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                switch (d)
+                {
+                    case 1:
+                        Console.WriteLine("Число элементов, которое может содержать список: " + AL.Capacity);
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Число элементов, фактически содержащихся в списке: " + AL.Count);
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Введите элемент который нужно добавить");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        AL.Add(n);
+                        Console.WriteLine();
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.WriteLine();
+                        Console.WriteLine("Введите элемент который нужно удалить");
+                        int t = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine();
+                        AL.Remove(t);
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        AL.Sort();
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        AL.Clear();
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        AL.Reverse();
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 8:
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.WriteLine();
+                        Console.WriteLine("Введите объект, индекс которого нужно найти ");
+                        int j = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Индекс данного элемента: " + AL.BinarySearch(j));
+                        Console.ReadKey();
+                        break;
+                    case 9:
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.WriteLine();
+                        Console.WriteLine("Введите элемент");
+                        int h = Convert.ToInt32(Console.ReadLine());
+                        if (AL.Contains(h) == true)
+                        {
+                            Console.WriteLine("Элемент входит");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Элемент не входит");
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 10:
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.WriteLine();
+                        Console.WriteLine("Введите элемент");
+                        int f = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Индекс данного элемента: " + AL.IndexOf(f));
+                        Console.ReadKey();
+                        break;
+                    case 11:
+                        Console.WriteLine(AL.GetEnumerator());
+                        Console.ReadKey();
+                        break;
+                    case 12:
+                        foreach (int i in AL.ToArray())
+                            Console.Write(i + " ");
+                        Console.ReadKey();
+                        break;
+                    case 13:
+                        Console.Write("ArrayList: ");
+                        foreach (int i in AL)
+                            Console.Write(i + " ");
+                        Console.WriteLine();
+                        Console.WriteLine("Введите размерность AList ");
+                        int r = Convert.ToInt32(Console.ReadLine());
+                        for (int i = 0; i < r; i++)
+                        {
+                            newAL2.Add(Convert.ToInt32(Console.ReadLine()));
+                        }
+                        Console.Clear();
+                        Console.Write("Заданный массив ");
+                        foreach (int y in newAL2)
+                            Console.Write(y + " ");
+                        Console.WriteLine();
+                        Console.WriteLine(AL.Equals(newAL2));
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu = false;
+                        break;
+                }
+                Console.Clear();
+            }
+            while (Menu);
+        }
+    }
+}
