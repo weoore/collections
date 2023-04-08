@@ -68,7 +68,7 @@ namespace ConsoleApplication31
         {
 
             string s = Console.ReadLine();
-            if (s.Length > 2)
+            if (s.Length >= 2)
             {
                 Console.WriteLine(pupki(s));
             }
