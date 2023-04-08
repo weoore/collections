@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main()
+        {
+            Queue<int> q = new Queue<int>();
+            DictionaryEntry[] arr = new DictionaryEntry[10];
+            bool Menu = true;
+            do
+            {
+                foreach (int de in q)
+                {
+                    Console.WriteLine(de + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("[1] - Enqueue");
+                Console.WriteLine();
+                Console.WriteLine("[2] - Dequeue");
+                Console.WriteLine();
+                Console.WriteLine("[3] - Clear");
+                Console.WriteLine();
+                Console.WriteLine("[4] - Contains");
+                Console.WriteLine();
+                Console.WriteLine("[5] - Peek");
+                Console.WriteLine();
+                Console.WriteLine("[6] - Count");
+                Console.WriteLine();
+                Console.WriteLine("[7] - ToArray");
+                Console.WriteLine();
+                Console.WriteLine("[8] - GetEnumerator");
+                Console.WriteLine();
+                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine();
+                int user_input = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                switch (user_input)
+                {
+                    case 1:
+                        Console.WriteLine("Введите элемент");
+                        int s = Convert.ToInt32(Console.ReadLine());
+                        q.Enqueue(s);
+                        break;
+                    case 2:
+                        Console.WriteLine(q.Dequeue());
+                        break;
+                    case 3:
+                        q.Clear();
+                        break;
+                    case 4:
+                        Console.WriteLine("Введите элемент");
+                        int h = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(q.Contains(h));
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        Console.WriteLine(q.Peek());
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        Console.WriteLine(q.Count);
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        Console.WriteLine(q.ToArray());
+                        Console.ReadKey();
+                        break;
+                    case 8:
+                        Console.WriteLine(q.GetEnumerator());
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu = false;
+                        break;
+                }
+                Console.Clear();
+            }
+            while (Menu);
+        }
+    }
+}
