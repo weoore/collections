@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            HashSet<int> set = new HashSet<int>();
+            int[] ar = new int[1];
+            bool Menu = true;
+            do
+            {
+                Console.Write("Изначальный set: ");
+                foreach (int i in set)
+                    Console.Write(i + " ");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("[1] - Add");
+                Console.WriteLine();
+                Console.WriteLine("[2] - Remove");
+                Console.WriteLine();
+                Console.WriteLine("[3] - Clear");
+                Console.WriteLine();
+                Console.WriteLine("[4] - Count ");
+                Console.WriteLine();
+                Console.WriteLine("[5] - Contains");
+                Console.WriteLine();
+                Console.WriteLine("[6] - CopyTo");
+                Console.WriteLine();
+                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine();
+                int user_input = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                switch (user_input)
+                {
+                    case 1:
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        set.Add(n);
+                        break;
+                    case 2:
+                        Console.WriteLine("Введите элемент, котоырй нужно удалить: ");
+                        int h = Convert.ToInt32(Console.ReadLine());
+                        set.Remove(h);
+                        break;
+                    case 3:
+                        set.Clear();
+                        break;
+                    case 4:
+                        Console.WriteLine("Размерность set: " + set.Count());
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        int j = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(set.Contains(j));
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        set.CopyTo(ar);
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu = false;
+                        break;
+                }
+                Console.Clear();
+            }
+            while (Menu);
+        }
+    }
+}
