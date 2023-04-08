@@ -56,9 +56,9 @@ namespace ConsoleApplication31
                 Console.WriteLine();
                 Console.WriteLine("[0] - Выход из программы");
                 Console.WriteLine();
-                int d = Convert.ToInt32(Console.ReadLine());
+                int user_input = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
-                switch (d)
+                switch (user_input)
                 {
                     case 1:
                         Console.WriteLine("Число элементов, которое может содержать список: " + AL.Capacity);
