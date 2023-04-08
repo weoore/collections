@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication31
+{
+    class Program
+    {
+        static void Main()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            bool Menu = true;
+            do
+            {
+                foreach (var de in dic)
+                {
+                    Console.WriteLine("Key = {0}, Value = {1}", de.Key, de.Value);
+                }
+                Console.WriteLine();
+                Console.WriteLine("[1] - Add");
+                Console.WriteLine();
+                Console.WriteLine("[2] - Remove");
+                Console.WriteLine();
+                Console.WriteLine("[3] - Clear");
+                Console.WriteLine();
+                Console.WriteLine("[4] - Keys");
+                Console.WriteLine();
+                Console.WriteLine("[5] - Values");
+                Console.WriteLine();
+                Console.WriteLine("[6] - Count");
+                Console.WriteLine();
+                Console.WriteLine("[7] - ContainsKey");
+                Console.WriteLine();
+                Console.WriteLine("[8] - GetEnumerator");
+                Console.WriteLine();
+                Console.WriteLine("[9] - ContainsValue");
+                Console.WriteLine();
+                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine();
+                int user_input = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                switch (user_input)
+                {
+                    case 1:
+                        Console.WriteLine("Введите ключ:");
+                        string n = Console.ReadLine();
+                        Console.WriteLine("Введите значение:");
+                        string h = Console.ReadLine();
+                        dic.Add(n, h);  
+                        break;
+                    case 2:
+                        foreach (var de in dic)
+                        {
+                            Console.WriteLine("Key = {0}, Value = {1}", de.Key, de.Value);
+                        }
+                        Console.WriteLine("Введите ключ который нужно удалить");
+                        string j = Console.ReadLine();
+                        dic.Remove(j);
+                        break;
+                    case 3:
+                        dic.Clear();
+                        break;
+                    case 4:
+                        ICollection g = dic.Keys;
+                        foreach (string s in g)
+                        {
+                            Console.WriteLine(s);
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 5:
+                        ICollection b = dic.Values;
+                        foreach (string s in b)
+                        {
+                            Console.WriteLine(s);
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        Console.WriteLine("Количевство пар: " + dic.Count);
+                        Console.ReadKey();
+                        break;
+                    case 7:
+                        string t = Console.ReadLine();
+                        Console.WriteLine(dic.ContainsKey(t));
+                        Console.ReadKey();
+                        break;
+                    case 8:
+                        Console.WriteLine(dic.GetEnumerator());
+                        Console.ReadKey();
+                        break;
+                    case 9:
+                        string q = Console.ReadLine();
+                        Console.WriteLine(dic.ContainsValue(q));
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu = false;
+                        break;
+                }
+                Console.Clear();
+            }
+            while (Menu);
+        }
+    }
+}
