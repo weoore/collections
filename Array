@@ -40,9 +40,7 @@ namespace ConsoleApplication31
                 Console.WriteLine();
                 Console.WriteLine("[8] - FindAll");
                 Console.WriteLine();
-                Console.WriteLine("[9] - TrueForAll");
-                Console.WriteLine();
-                Console.WriteLine("[0] - Выход из программы");
+                Console.WriteLine("[9] - Выход из программы");
                 Console.WriteLine();
                 int user_input = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
@@ -95,47 +93,6 @@ namespace ConsoleApplication31
                         Console.ReadKey();
                         break;
                     case 9:
-                        Console.WriteLine("Введите размерность массива");
-                        int r = Convert.ToInt32(Console.ReadLine());
-                        int[] a = new int[r];
-                        Console.WriteLine("Введите массив");
-                        for (int i = 0; i < r; i++)
-                        {
-                            a[i] = Convert.ToInt32(Console.ReadLine());
-                        }
-                        Console.Clear();
-                        Console.Write("Заданный массив ");
-                        foreach (int y in a)
-                            Console.Write(y + " ");
-                        Console.WriteLine();
-                        Console.WriteLine("[1] - проверить все ли элементы массива четные");
-                        Console.WriteLine("[2] - проверить все ли элементы массива нечетные");
-                        int vod = Convert.ToInt32(Console.ReadLine());
-                        Console.Clear();
-                        Console.WriteLine("[1] - проверить все ли элементы массива четные");
-                        Console.WriteLine("[2] - проверить все ли элементы массива нечетные");
-                        Console.Clear();
-                        Console.Clear();
-                        if (vod == 1)
-                        {
-                            bool result = Array.TrueForAll(a, y => y % 2 == 0);
-                            if (result == true)
-                            {
-                                Console.WriteLine("Верно");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Неверно");
-                            }
-                        }
-                        else if (vod == 2)
-                        {
-                            bool result1 = Array.TrueForAll(a, y => y % 2 == 1);
-                            Console.WriteLine(result1);
-                        }
-                        Console.ReadKey();
-                        break;
-                    case 0:
                         Menu = false;
                         break;
                 }
