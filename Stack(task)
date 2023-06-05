@@ -1,82 +1,45 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApplication31
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static public bool pupki(string s)
+        string input = Console.ReadLine();
+        bool result = CheckBrackets(input);
+        if (result)
         {
-            Stack<char> st = new Stack<char>();
-            for (int i = 0; i < s.Length / 2; i++)
+            Console.WriteLine("Да");
+        }
+        else
+        {
+            Console.WriteLine("Нет");
+        }
+        Console.ReadKey();
+    }
+
+    static bool CheckBrackets(string input)
+    {
+        Stack<char> stack = new Stack<char>();
+        foreach (char br in input)
+        {
+            if (br == '(' || br == '[' || br == '{')
             {
-                st.Push(s[i]);
+                stack.Push(br);
             }
-            int a = s.Length / 2;
-            s = s.Remove(0, a);
-
-            Console.WriteLine(s);
-            Console.WriteLine();
-            foreach (char n in st)
+            else if (br == ')' || br == ']' || br == '}')
             {
-                for (int i = 0; i < s.Length; i++)
+                if (stack.Count == 0)
                 {
-                    if (n == '{')
-                    {
-                        if (s[i] == '}')
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-
-                    }
-
-                    else if (n == '(')
-                    {
-                        if (s[i] == ')')
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else if (n == '[')
-                    {
-                        if (s[i] == ']')
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
+                    return false;
+                }
+                char top = stack.Pop();
+                if ((br == ')' && top != '(') || (br == ']' && top != '[') || (br == '}' && top != '{'))
+                {
+                    return false;
                 }
             }
-            return false;
         }
-        static void Main(string[] args)
-        {
-
-            string s = Console.ReadLine();
-            if (s.Length >= 2)
-            {
-                Console.WriteLine(pupki(s));
-            }
-            else
-            {
-                Console.WriteLine("False");
-            }
-            Console.ReadKey();
-        }
+        return stack.Count == 0;
     }
 }
